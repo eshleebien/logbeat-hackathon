@@ -4,7 +4,6 @@ import json
 from util import slack
 from util.datetostr import datestr_to_unix
 from util.parselogs import parse_log_file
-from util.pivotal import add_story
 
 
 class Resource:
@@ -14,8 +13,8 @@ class Resource:
 
         q = {
             'project': text[0],
-            'from': datestr_to_unix(text[1]),
-            'to': datestr_to_unix(text[2]),
+            # 'from': datestr_to_unix(text[1]),
+            # 'to': datestr_to_unix(text[2]),
         }
 
         logs = parse_log_file(q['project'])
