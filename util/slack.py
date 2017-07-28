@@ -21,12 +21,13 @@ class Slack:
                            "name": "create",
                            "text": "File a Ticket",
                            "type": "button",
-                           "value": "1",
+                           "value": p.message,
                         },
                         {
                            "name": "ignore",
                            "text": "Ignore",
                            "type": "button",
+                           "style": "danger",
                            "value": "1",
                         }
                      ]

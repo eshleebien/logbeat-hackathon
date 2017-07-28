@@ -2,6 +2,8 @@ import falcon
 import json
 
 from util import parselogs, slack
+from util.parselogs import parse_log_file
+from util.datetostr import datestr_to_unix
 
 
 class Resource:
@@ -11,15 +13,13 @@ class Resource:
 
         q = {
                 'project': text[0],
-                'from': text[1],
-                'to': text[2]
+                'from': datestr_to_unix(text[1]),
+                'to': datestr_to_unix(text[2]),
         }
 
         print(q)
 
-        resp.body = 'hello world'
-        # query logs here
-        logs = parselogs.parse_log_file(q['project'])
+        logs = parse_log_file(q['project'])
 
         attachments = []
         for log in logs:
@@ -29,10 +29,6 @@ class Resource:
                 "text": "",
                 "attachments": attachments
             }
-
-        # dummy lines, to prevent pylint from complaining that we don't use these
-        d_message_body
-        logs
 
         resp.status = falcon.HTTP_200
         resp.body = (json.dumps(response))
