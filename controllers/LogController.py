@@ -1,7 +1,7 @@
 import falcon
 import json
 
-from util import parselogs, slack
+from util import slack
 from util.parselogs import parse_log_file
 from util.datetostr import datestr_to_unix
 
