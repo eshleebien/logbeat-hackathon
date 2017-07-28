@@ -1,6 +1,8 @@
 import datetime
 import time
 
+from datetostr import datestr_to_unix
+
 log_files = {
     'sample': '../storage/sample.log',
 }
@@ -16,7 +18,8 @@ def parse_log_file(project):
 
         level, _, log_date, log_time = metadata.split()
         log_datetime = log_date + " " + log_time
-        timestamp = int(time.mktime(datetime.datetime.strptime(log_datetime, "%Y-%m-%d %H:%M:%S").timetuple()))
+        # timestamp = int(time.mktime(datetime.datetime.strptime(log_datetime, "%Y-%m-%d %H:%M:%S").timetuple()))
+        timestamp = datestr_to_unix(log_datetime)
 
         logs[timestamp] = {
             'level': level,
