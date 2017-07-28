@@ -7,7 +7,7 @@ from util.parselogs import parse_log_file
 from util.pivotal import add_story
 
 class Resource:
-    def on_post(self, req, resp):
+    def on_get(self, req, resp):
 
         text = req.get_param('text').split()
 
@@ -28,7 +28,6 @@ class Resource:
             "text": "",
             "attachments": attachments
         }
-        print response
 
         resp.status = falcon.HTTP_200
         resp.body = (json.dumps(response))

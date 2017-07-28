@@ -1,7 +1,8 @@
 from datetostr import datetimestr_to_unix
 
 log_files = {
-    'translate-core': 'storage/sample.log',
+    'translate-core': 'storage/translate-core.log',
+    'gapi': 'storage/gapi.log',
 }
 
 def parse_log_file(project):

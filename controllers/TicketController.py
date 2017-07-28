@@ -8,6 +8,7 @@ from util.datetostr import datestr_to_unix
 
 class Resource:
     def on_post(self, req, resp):
+        print req.params
 
         resp.status = falcon.HTTP_200
         resp.body = (json.dumps('hey yo'))
