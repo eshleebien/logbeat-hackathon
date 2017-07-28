@@ -15,6 +15,7 @@ def format_log_attachments(p):
                  "text": p['message'],
                  "attachment_type": "default",
                  "ts": p['timestamp'],
+                 "callback_id": "pivotal",
                  "actions": [
                     {
                        "name": "create",
