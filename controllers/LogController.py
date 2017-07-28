@@ -3,6 +3,7 @@ import json
 import logging
 
 from util import sqs, parselogs
+from util.datetostr import datestr_to_unix
 from config import config
 
 
@@ -13,16 +14,15 @@ class Resource:
 
         q = {
                 'project': text[0],
-                'from': text[1],
-                'to': text[2]
+                'from': datestr_to_unix(text[1]),
+                'to': datestr_to_unix(text[2]),
         }
 
         print(q);
 
-        resp.body = 'hello world'
-        # query logs here
         logs = parselogs.parse_log_file(q['project'])
 
+        resp.body = 'hello world'
         d_message_body = {
             #"text": log.text,
             "text": "test",
