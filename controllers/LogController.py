@@ -12,9 +12,9 @@ class Resource:
         text = req.get_param('text').split()
 
         q = {
-                'project': text[0],
-                'from': datestr_to_unix(text[1]),
-                'to': datestr_to_unix(text[2]),
+            'project': text[0],
+            'from': datestr_to_unix(text[1]),
+            'to': datestr_to_unix(text[2]),
         }
 
         print(q)
@@ -26,9 +26,9 @@ class Resource:
             attachments.append(slack.format_log_attachments(log))
 
         response = {
-                "text": "",
-                "attachments": attachments
-            }
+            "text": "",
+            "attachments": attachments
+        }
 
         resp.status = falcon.HTTP_200
         resp.body = (json.dumps(response))
