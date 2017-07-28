@@ -6,8 +6,9 @@ from util.datetostr import datestr_to_unix
 from util.parselogs import parse_log_file
 from util.pivotal import add_story
 
+
 class Resource:
-    def on_get(self, req, resp):
+    def on_post(self, req, resp):
 
         text = req.get_param('text').split()
 
