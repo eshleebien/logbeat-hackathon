@@ -2,9 +2,9 @@ import falcon
 import json
 
 from util import slack
-from util.parselogs import parse_log_file
 from util.datetostr import datestr_to_unix
-
+from util.parselogs import parse_log_file
+from util.pivotal import add_story
 
 class Resource:
     def on_get(self, req, resp):
@@ -24,7 +24,6 @@ class Resource:
             v['project_name'] = q['project']
             v['timestamp'] = k
             attachments.append(slack.format_log_attachments(v))
-
         response = {
             "text": "",
             "attachments": attachments
