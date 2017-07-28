@@ -2,7 +2,7 @@ import json
 import logging
 
 def parse_log_file(project):
-    log_files - {
+    log_files = {
         'sample': 'storage/sample.log',
     }
 
