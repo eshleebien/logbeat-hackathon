@@ -7,7 +7,7 @@ from util.datetostr import datestr_to_unix
 
 
 class Resource:
-    def on_post(self, req, resp):
+    def on_get(self, req, resp):
 
         text = req.get_param('text').split()
 
@@ -29,7 +29,6 @@ class Resource:
             "text": "",
             "attachments": attachments
         }
-        print response
 
         resp.status = falcon.HTTP_200
         resp.body = (json.dumps(response))
