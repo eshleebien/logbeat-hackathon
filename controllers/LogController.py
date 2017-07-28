@@ -2,7 +2,7 @@ import falcon
 import json
 import logging
 
-from util import sqs
+from util import sqs, parselogs
 from config import config
 
 
@@ -21,7 +21,7 @@ class Resource:
 
         resp.body = 'hello world'
         # query logs here
-        logs = {};
+        logs = parselogs.parse_log_file(q['project'])
 
         d_message_body = {
             #"text": log.text,
@@ -50,5 +50,9 @@ class Resource:
                 }
             ]
         }
+
+        #dummy lines, to prevent pylint from complaining that we don't use these
+        d_message_body
+        logs
 
         resp.status = falcon.HTTP_200
