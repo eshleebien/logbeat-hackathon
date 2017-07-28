@@ -38,7 +38,7 @@ class Resource:
                             "name": "create",
                             "text": "Create Ticket",
                             "type": "button",
-                            "value": "1"
+                            "value": "1",
                             "confirm": {
                                 "title": "Are you sure?",
                                 "text": "Wouldn't you prefer a good game of chess?",
