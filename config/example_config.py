@@ -13,3 +13,6 @@ AWS = {
         'DEFAULT_QUEUE': 'Snji-default-test',
     }
 }
+
+PIVOTAL_PROJECT_ID = '2086981'
+PIVOTAL_API_KEY = ''
