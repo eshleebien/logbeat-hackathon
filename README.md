@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+# gomg-hackathon
+Gengo hackathon team:
+=======
 Falcon boilerplate
 ====
 *WIP*
@@ -55,3 +59,4 @@ threads directory - contains the threaded events used for fetching data from dif
 util directory - contains all the helper classes
 app.py - Initializes the application
 
+>>>>>>> 6f034151a0f97343b0f097cc3dc088d8613f507a
