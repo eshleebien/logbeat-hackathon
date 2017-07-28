@@ -1,7 +1,7 @@
 from datetostr import datetimestr_to_unix
 
 log_files = {
-    'sample': '../storage/sample.log',
+    'translate-core': 'storage/sample.log',
 }
 
 def parse_log_file(project):
