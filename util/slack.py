@@ -9,19 +9,18 @@ def get_log_color(log_level):
 
 
 def format_log_attachments(p):
-    attachments = [
-              {
-                 "author_name": p.name,
-                 "color": self.get_log_color(p.log_level),
-                 "text": p.message,
+    attachments = {
+                 "author_name": p['project_name'],
+                 "color": get_log_color(p['level']),
+                 "text": p['message'],
                  "attachment_type": "default",
-                 "ts": p.timestamp,
+                 "ts": p['timestamp'],
                  "actions": [
                     {
                        "name": "create",
                        "text": "File a Ticket",
                        "type": "button",
-                       "value": p.message,
+                       "value": p['message'],
                     },
                     {
                        "name": "ignore",
@@ -32,5 +31,4 @@ def format_log_attachments(p):
                     }
                  ]
               }
-           ]
     return attachments
