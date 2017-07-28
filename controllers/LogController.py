@@ -2,7 +2,8 @@ import falcon
 import json
 import logging
 
-from util import sqs, parselogs
+from util import sqs
+from util.parselogs import parse_log_file
 from util.datetostr import datestr_to_unix
 from config import config
 
@@ -20,7 +21,7 @@ class Resource:
 
         print(q);
 
-        logs = parselogs.parse_log_file(q['project'])
+        logs = parse_log_file(q['project'])
 
         resp.body = 'hello world'
         d_message_body = {
