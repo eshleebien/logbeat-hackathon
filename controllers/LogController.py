@@ -17,18 +17,19 @@ class Resource:
             'to': datestr_to_unix(text[2]),
         }
 
-        print(q)
-
         logs = parse_log_file(q['project'])
 
         attachments = []
-        for log in logs:
-            attachments.append(slack.format_log_attachments(log))
+        for k, v in logs.items():
+            v['project_name'] = q['project']
+            v['timestamp'] = k
+            attachments.append(slack.format_log_attachments(v))
 
         response = {
             "text": "",
             "attachments": attachments
         }
+        print response
 
         resp.status = falcon.HTTP_200
         resp.body = (json.dumps(response))
