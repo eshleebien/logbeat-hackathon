@@ -1,11 +1,26 @@
-import json
-import logging
+import datetime
+import time
+
+log_files = {
+    'sample': '../storage/sample.log',
+}
 
 def parse_log_file(project):
-    log_files = {
-        'sample': 'storage/sample.log',
-    }
+    logs = {}
 
     log_file = open(log_files[project], 'r')
     for line in log_file.readlines():
-        print("LINE:", line)
+        metadata, log_msg = line.split("-->")
+        if len(log_msg.strip())==0:
+        	continue
+
+        level, _, log_date, log_time = metadata.split()
+        log_datetime = log_date + " " + log_time
+        timestamp = int(time.mktime(datetime.datetime.strptime(log_datetime, "%Y-%m-%d %H:%M:%S").timetuple()))
+
+        logs[timestamp] = log_msg
+
+    return logs
+
+if __name__=='__main__':
+	parse_log_file('sample')
