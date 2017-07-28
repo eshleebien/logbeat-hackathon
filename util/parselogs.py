@@ -18,9 +18,12 @@ def parse_log_file(project):
         log_datetime = log_date + " " + log_time
         timestamp = int(time.mktime(datetime.datetime.strptime(log_datetime, "%Y-%m-%d %H:%M:%S").timetuple()))
 
-        logs[timestamp] = log_msg
+        logs[timestamp] = {
+            'level': level,
+            'message': log_msg
+        }
 
     return logs
 
 if __name__=='__main__':
-	parse_log_file('sample')
+    print	parse_log_file('sample')
