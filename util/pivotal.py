@@ -26,7 +26,7 @@ def add_story(data, story_type='bug'):
     new_story = pivotal.create_story(story_dict)
 
     # print "This story's ID number is:", new_story.id
-    return new_story.id
+    return new_story['id']
 
 
 def _lookup_id_by_email(email_address):
